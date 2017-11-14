@@ -1,0 +1,20 @@
+Scaffolding Your React App
+
+JSX needs to be transpiled into regular JS before reaching the browser. 
+Transpiling = take the source code of a program written in one programming language 
+as its input, and produces the equivalent source code in another programming language.
+
+This can be done with Babel and Webpack, but Facebook also has 'Create React App'.
+
+Install with the command line:
+
+    npm install -g create-react-app
+    
+With windows, you need to run the NODE command line as an admin:
+    
+    
+
+
+
+    
+    

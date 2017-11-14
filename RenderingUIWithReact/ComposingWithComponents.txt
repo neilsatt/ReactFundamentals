@@ -1,0 +1,6 @@
+React uses composition to build user interfaces. 
+
+We extend React.Component, but we never extend it more than once. 
+
+Instead of extending base components to add more UI or behavior, we compose elements in different ways 
+using nesting and props. You ultimately want your UI components to be independent, focused, and reusable.

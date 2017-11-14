@@ -1,0 +1,27 @@
+In React, the data flows from the parent component to a child component. 
+
+Data updates are sent to the parent component where the parent performs the actual change.
+
+If the data must be updated, then only the parent component should perform the update. 
+
+If the child component needs to make a change to the data, then it would send the updated 
+data to the parent component where the change will actually be made. 
+
+
+Data-flow In React Recap
+In React, data flows in only one direction, from parent to child. 
+
+If data is shared between sibling child components, then the data  should be stored 
+in the parent component and passed to both of the child components that need it.
+
+
+Unit Questions:
+
+A FlightPlanner component stores the information for booking a flight. 
+It also contains DatePicker and DestinationPicker as child components. 
+Here's what the code might look like:
+
+<FlightPlanner>
+  <DatePicker />
+  <DestinationPicker />
+</FlightPlanner>

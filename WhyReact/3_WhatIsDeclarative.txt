@@ -1,0 +1,44 @@
+Imperative Code --------------------------------------------------------------------------------
+
+When JavaScript code is written imperatively, we tell JavaScript exactly what to do and how to do it. 
+
+
+const people = ['Amanda', 'Geoff', 'Michael', 'Richard', 'Ryan', 'Tyler']
+const excitedPeople = []
+
+for (let i = 0; i < people.length; i++) {
+  excitedPeople[i] = people[i] + '!'
+}
+
+This is imperative code. We're commanding JavaScript what to do at every single step. 
+
+
+Declarative Code --------------------------------------------------------------------------------
+
+With declarative code, we declare what we want done, and JavaScript will take care of doing it. This explanation is a bit abstract, so let's look at an example. 
+Let's take the imperative for loop code we were just looking at and refactor it to be more declarative.
+
+To get us from the starting point to the end, we'll just use JavaScript's .map() function 
+to declare what we want done:
+
+const excitedPeople = people.map(name => name + '!')
+
+
+Notice that with this code we haven't:
+
+    - created an iterator object
+    - told the code when it should stop running
+    - used the iterator to access a specific item in the people array
+    - stored each new string in the excitedPeople array
+    
+All of those steps are taken care of by JavaScript's .map() Array method.
+
+
+Declarative Code Recap ---------------------------------------------------------------------------
+
+Imperative code instructs JavaScript on how it should perform each step. 
+With declarative code, we tell JavaScript what we want to be done, and 
+let JavaScript take care of performing the steps.
+
+React is declarative because we write the code that we want, and React is in charge of 
+taking our declared code and performing all of the JavaScript/DOM steps to get us to our desired result.

@@ -1,0 +1,9 @@
+A large app is built by building a bunch of smaller components and then composing them together.
+
+The Contact allows us to manage our contacts. 
+
+We have three contacts and search. Typing filters the results. 
+
+You have a reset link ('show all') and a delete icon. 
+
+You can also create a new contact with an avatar, and are taken to a new screen using routing. 

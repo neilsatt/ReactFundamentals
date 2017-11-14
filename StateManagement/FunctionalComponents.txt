@@ -1,0 +1,2 @@
+Functional Components - an alternative way to create components.
+
