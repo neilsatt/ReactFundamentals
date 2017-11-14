@@ -2,29 +2,28 @@
 React.createElement(type, props, content)
 
 const element = React.createElement('div', {
-className: 'welcome-message'}, 
-'hello world');
+  className: 'welcome-message'}, 
+  'hello world');
+
 
 // Not rendered to the page until this happens:
-
 ReactDOM.render(element, 
     document.getElementById('root)
 )
 
 
-type - This can be a string of any existing HTML element (e.g. 'p', 'span', or 'header') or 
-you could pass a React component (we'll be creating components with JSX, in just a moment).
+// Explanation of createElement parameters
+type - This can be a string of any existing HTML element (e.g. 'p', 'span', or 'header') or you could pass a React component.
 
 
 props – either null or an object. This is an object of HTML attributes and custom data 
 about the element.
 
-content – null, a string, a React Element, or a React Component. Anything that you pass here 
-will be the content of the rendered element. This can include plain text, JavaScript code, 
-other React elements, etc.
+content – null, a string, a React Element, or a React Component. Anything that you pass here will be the content of the rendered element. 
+This can include plain text, JavaScript code, other React elements.
 
 
-Returns ONE root element 
+createElement Returns ONE root element 
 
 You can nest elements:
 
@@ -34,7 +33,7 @@ const element = React.createElement('ol', null,
     React.createElement('li', null, 'Sandy')  
 )
 
-Updated to use an array instead:
+but it's better to use an array instead:
 
 const people = [
     {name: 'Bill'},
@@ -49,6 +48,9 @@ const element = React.createElement('ol', null,
     ))  
 )
 
+
+------------------------------------------------------
+
 Updated to use JSX instead:
 
 const element = <ol>
@@ -58,9 +60,9 @@ const element = <ol>
 </ol>  
 
 // use this to check code
-debugger
+debugger;
 
-
+-----------------------------------------------------
 JSX also return just one element:
 
 Correct Version:
@@ -116,6 +118,7 @@ ReactDOM.render(
 Creating Elements Recap ------------------------------------------------------
 React - View Layer
 createElement renders HTML, often using JSX
+
 JSX gets compiled to calls to React's createElement method that outputs HTML
 that gets rendered in the browser. 
 

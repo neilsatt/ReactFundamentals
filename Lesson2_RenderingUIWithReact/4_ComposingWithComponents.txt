@@ -1,0 +1,43 @@
+React uses composition to build user interfaces. 
+
+We extend React.Component, but we never extend it more than once. 
+
+Instead of extending base components to add more UI or behavior, 
+we compose elements in different ways using nesting and props. 
+
+You ultimately want your UI components to be independent, focused, and reusable.
+
+
+Example:
+
+
+class ContactList extends React.Component {
+    render() {   // the only required method, it returns the JSX or elements 
+      const people = this.props.contacts
+      
+      return <ol>
+        {people.map(person =>(
+             <li key={person.name}>{person.name}</li>
+        ))}
+      </ol>   
+    }
+}
+
+// Have a ContactList with different props
+class App extends Component {
+    render() {
+     return(
+        <div className="App">
+         <ContactList contacts={[
+            {name: 'Bill'},
+            {name: 'Bob'},
+            {name: 'Sandy'}
+         ]} />
+         <ContactList contacts={[
+            {name: 'Amanda'},
+            {name: 'Ted'},
+            {name: 'Suchity'}
+         ]} />
+   </div>
+  );
+}
