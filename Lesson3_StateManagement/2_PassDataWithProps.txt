@@ -1,0 +1,84 @@
+Props allow you to pass data into your components
+
+/* DATA OBJECT 
+const contacts = [
+  {
+    "id": "ryan",
+    "name": "Ryan Florence",
+    "email": "ryan@reacttraining.com",
+    "avatarURL": "http://localhost:5001/ryan.jpg"
+  },
+  {
+    "id": "michael",
+    "name": "Michael Jackson",
+    "email": "michael@reacttraining.com",
+    "avatarURL": "http://localhost:5001/michael.jpg"
+  },
+  {
+    "id": "tyler",
+    "name": "Tyler McGinnis",
+    "email": "tyler@reacttraining.com",
+    "avatarURL": "http://localhost:5001/tyler.jpg"
+  }
+]
+
+*/
+
+
+// --- LIST CONTACTS SKELETON
+// App set up
+import React, { Component } from 'react'
+
+class ListContacts extends Component {
+    // REQUIRED 
+    render() {
+    console.log('Props', this.props) // this will log our your object from the App file
+    return (
+    
+     )    
+  }
+}
+
+
+
+// this is necessary to import in our main app.js files
+export default ListContacts
+
+
+// --- APP SKELETON ---
+/*
+ Contacts Object here
+
+*/
+// THIS IS HOW WE PASS THE DATA
+class App extends Component {
+    render() {
+        return (
+            <div>
+                <ListContacts contacts={contacts}
+            </div>
+        
+        )
+    }
+}
+
+
+
+
+--------------------------------------------------------------------------
+Passing Data With Props Recap
+
+A prop is any input that you pass to a React component. Just like an HTML attribute, a prop name and value are added to the Component.
+
+// passing a prop to a component
+<LogoutButton text='Wanna log out?' />
+In the code above, text is the prop and the string 'Wanna log out?' is the value.
+
+All props are stored on the this.props object. So to access this text prop from inside the component, we'd use this.props.text:
+
+// access the prop inside the component
+render() {
+    return <div>{this.props.text}</div>
+}
+
+

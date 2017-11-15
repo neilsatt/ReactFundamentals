@@ -1,3 +1,5 @@
+Contacts APP
+
 A large app is built by building a bunch of smaller components and then composing them together.
 
 The Contact allows us to manage our contacts. 

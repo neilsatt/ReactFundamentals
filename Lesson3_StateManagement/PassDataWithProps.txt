@@ -1,2 +1,0 @@
-Props allow you to pass data into your components
-
