@@ -1,2 +1,53 @@
 Functional Components - an alternative way to create components.
 
+back-ticks (` `) in the "style" attribute's value - these template literals allow for embedded expressions:
+`string text ${expression} string text`
+
+-----------------------------------------------------
+Two ways to render components:
+
+class User extends React.Component {
+ render() {
+   return (
+    <p> Username: {this.props.username} </p> 
+   )
+ }
+}
+
+// If your component only has a render method, you can use a Functional Component
+// this.props is no longer needed. props is passed in
+function User (props) {
+ return (
+  <p> Username: {props.username} </p>
+ )
+}
+
+
+Stateless Functional Components:
+- Takes in props as an argument
+- returns description of UI
+- there isn't a 'this' keyword
+
+
+---------------------------------------------------------
+RECAP
+
+// Component - Version One 
+class Email extends React.Component {
+  render() {
+    return (
+      <div>
+        {this.props.text}
+      </div>
+    );
+  }
+};
+
+// Functional Component
+const Email = (props) => (
+  <div>
+    {props.text}
+  </div>
+);
+
+
