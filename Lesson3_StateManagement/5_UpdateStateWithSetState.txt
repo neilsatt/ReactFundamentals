@@ -1,0 +1,84 @@
+You can't update the state directly:
+    this.state.username = 'bob'
+    
+The reason is because when mutating the state directly, react has no
+idea that the state of your component actually changes. 
+
+setState helps solve this problem. 
+
+The function is passed the previous state as its first argument.
+
+Two ways to use it:
+// 1. The function is passed the previous state and the object returned
+// will be merged with the current state to form the new state
+this.setState((prevState) => ({
+    count: prevState.count + 1
+
+})) 
+
+// 2. Pass in an object. The object will be merged with the current state 
+to form the new state of the component.
+this.setState({
+    username: 'Bob'
+})
+
+
+Use functional setState when the new state of your component depends on 
+the previous state. 
+For everything else, use the object setState
+
+Example to remove a contact with a click event:
+// returns a new object merged with current state
+  removeContact = (contact) => {
+    this.setState((state) => ({
+      contacts: state.contacts.filter((c) => c.id !== contact.id)
+    }))
+  }
+  
+//  in our ListContacts div:
+  render() {
+    return (
+      <div>
+        <ListContacts onDeleteContact={this.removeContact} contacts={this.state.contacts} />
+      </div>
+    )
+  }
+
+// in ListContacts click event
+onClick={() => props.onDeleteContact(contact)}
+
+
+How State is Set
+Earlier in this lesson, we saw how we can define a component's state at the time of initialization. Since state reflects mutable information that ultimately affects rendered output, a component may also update its state throughout its lifecycle using this.setState(). As we've learned, every time local state changes, React will trigger a re-render of the component by calling its render() method.
+
+There are two ways to use setState(). The first is to merge state updates. Consider a snippet of the following component:
+
+class Email extends React.Component {
+  state = {
+    subject: '',
+    message: ''
+  }
+  // ...
+});
+Though the initial state of this component contains two properties (subject and message), they can be updated independently. For example:
+
+this.setState({
+  subject: 'Hello! This is a new subject'
+})
+This way, we can leave this.state.message as-is, but replace this.state.subject with a new value.
+
+The second way we can use setState() is by passing in a function rather than an object. For example:
+
+this.setState((prevState) => ({
+  count: prevState.count + 1
+}))
+Here, the function passed in takes a single prevState argument. When a component's new state depends on the previous state (i.e., we are incrementing count in the previous state by 1), we want to use the functional setState().
+
+QUIZ 
+
+What is true about setting state in our components? Please check all that apply:
+- Whenever setState is called, the component also calls render() with the new state
+- State updates can be merged by passing in an object to setState()
+- State updates can be asynchronous (i.e., setState() can accept a function with the previous
+state as its first argument)
+

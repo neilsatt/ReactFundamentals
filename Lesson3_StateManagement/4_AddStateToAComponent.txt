@@ -1,0 +1,38 @@
+Earlier in this Lesson, we learned that props refer to attributes from parent components. In the end, props represent "read-only" data that are immutable (unable to be changed).
+
+A component's state, on the other hand, represents mutable data that ultimately affects what is rendered on the page. State is managed internally by the component itself and is meant to change over time, commonly due to user input (e.g., clicking on a button on the page).
+
+Components allow us to encapsulate the complexity of state manangement to individual components. 
+
+To add state to our components, add a state property to our class whose value is
+an object. The object represents the state of our component. 
+
+Key - represents a distinct piece of state for this component.
+
+class User extends React.Component {
+  state = {
+    username: 'Tyler'
+  } 
+}
+
+
+
+We can access the property by using dot notation - this.state.username
+
+For our contacts project, we can paste our contacts object into the state object.
+
+Quiz 1:
+What is true about state in React? Please select all that apply:
+- A component's state can be defined at initialization
+- A component can alter is own internal state
+
+State Recap
+By having a component manage its own state, any time there are changes made to that state, React will know and automatically make the necessary updates to the page.
+
+This is one of the key benefits of using React to build UI components: when it comes to re-rendering the page, we just have to think about updating state. 
+
+We don't have to keep track of exactly which parts of the page change each time there are updates. We don't need to decide how we will efficiently re-render the page. 
+
+React compares the previous output and new output, determines what has changed, and makes these decisions for us. 
+
+This process of determining what has changed in the previous and new outputs is called Reconciliation.
