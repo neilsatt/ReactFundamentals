@@ -1,0 +1,27 @@
+These lifecycle events are called when a component is being added to the DOM:
+
+constructor()
+componentWillMount()
+render()
+componentDidMount()
+
+---------------------------
+
+These lifecycle events are called when a component is re-rendered to the DOM
+
+componentWillReceiveProps()
+shouldComponentUpdate()
+componentWillUpdate()
+render()
+componentDidUpdate()
+
+
+---------------------------
+This lifecycle event is called when a component is being removed from the DOM
+
+componentWillUnmount()
+
+
+
+
+***Lifecycle image added to this folder

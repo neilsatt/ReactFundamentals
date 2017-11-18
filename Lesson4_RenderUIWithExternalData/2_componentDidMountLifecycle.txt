@@ -1,33 +1,54 @@
-Lifecycle Events are special methods each component can have that allow us
-to hook into the views when specific conditions happen. 
+componentDidMount() is the lifecycle hook that is run right after the component is added 
+to the DOM and should be used if you're fetching remote data or doing an Ajax request. 
 
-render() 
-- Is For Rendering only
-- Data should not be fetched in the render method
-- should not make any HTTP or Ajax requests
-- or alter the DOM
+If you need to load data from a remote endpoint, this is a good place to instantiate the network request. 
+Setting state in this method will trigger a re-rendering.
 
-render() is only used for receiving props and displaying content, so
-we put the code that should handle these things in lifecycle events.
+Example code --------------------------------------------
+import React, { Component } from 'react';
+import fetchUser from '../utils/UserAPI';
 
-Lifecycle events are automatically bound to the component instance, 
-and React calls them at certain times during the life of a component.
+class User extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      name: '',
+      age: ''
+    }
+  }
+
+  componentDidMount() {
+    fetchUser().then((user) => this.setState({
+      name: user.name,
+      age: user.age
+    }))
+  }
+
+  render() {
+    return (
+      <div>
+        <p>Name: {this.state.name}</p>
+        <p>Age: {this.state.age}</p>
+      </div>
+    )
+  }
+}
+
+export default User;
 
 
-componentWillMount()
-    - invoked immediately before the component is inserted in the DOM
+Explanation:
+The render() method is called which updates the page with a <div> that has one paragraph for 
+the name and one paragraph for the age. What's important to realize is that this.state.name 
+and this.state.age are empty strings (at first), so the name and age don't actually display
+
+Once the component has been mounted, the componentDidMount() lifecycle event occurs
+    - The fetchUser request from the UserAPI is run which sends a request to the user database
+    - When the data is returned, setState() is called and updates the name and age properties
     
+Since the state has changed, render() gets called again. This re-renders the page, but now 
+this.state.name and this.state.age have values.
 
-componentDidMount()
-    - invoked immediately after the component is inserted into the DOM
-    
 
-componentWillUnmount()
-    - invoked immediately before a component is removed from the DOM
-    
-componentWillReceiveProps()
-    - invoked whenever the component is about to receive brand new props
-    
-To use one of these, you'd just create a method in your component with the 
-name and React will call it. 
-
+componentDidMount() is one of a number of lifecycle events that React offers. componentDidMount() gets called after the component is "mounted" (which means after it is rendered). If you need to dynamically fetch data or run an Ajax request, you should do it in componentDidMount().
